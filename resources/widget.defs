@@ -1,6 +1,18 @@
 <svg>
   <defs>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pages/index.css" />
+    <link rel="stylesheet" href="pages/genre_selection.css" />
+    <link rel="stylesheet" href="pages/measure_heartbeat.css" />
+    <link rel="stylesheet" href="pages/song_info.css" />
+    <link rel="stylesheet" href="pages/songs.css" />
+    <link rel="stylesheet" href="pages/spotify_check.css" />
+
+
     <link rel="import" href="/mnt/sysassets/system_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/text_button.defs" />
+    <link rel="import" href="components/button.gui" />
+
+
   </defs>
 </svg>

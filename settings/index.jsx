@@ -3,7 +3,7 @@ registerSettingsPage(({ settings }) => (
     <Section
       title={
         <Text bold align="center">
-          FitBeat is the shit
+          FitBeat
         </Text>
       }
     >

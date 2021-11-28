@@ -7,6 +7,8 @@
     "@fitbit/sdk": "~6.0.2",
     "@fitbit/sdk-cli": "^1.7.3",
     "eslint": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "prettier": "2.5.0"
   },
   "fitbit": {

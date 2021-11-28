@@ -1,0 +1,10 @@
+<svg viewport-fill="#200063">
+
+  <textarea fill="#E22905" x="18" y="10" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Songs"/>
+
+  <use href="#button" fill="#E22905" x="10%" y="100%-90" width="80%">
+    <set href="text" attributeName="text-buffer" to="Listen on Spotify" />
+    <set href="handle" attributeName="id" to="replace-button" />
+  </use>
+
+</svg>
