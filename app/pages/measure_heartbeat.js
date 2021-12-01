@@ -1,18 +1,18 @@
 import document from "document";
 import { switchPage } from "../navigation";
 
-let buttonMusic = null;
+let buttonGenreSelection = null;
 
 export function destroy() {
-  console.log("destroy index page");
-  buttonMusic = null;
+  console.log("destroy heartbeat page");
+  buttonGenreSelection = null;
 }
 
 export function init() {
   console.log("init heartbeat page");
-  buttonMusic = document.getElementById('songs-button');
+  buttonGenreSelection = document.getElementById('genre-button');
 
-  buttonContinue.onclick = () => {
-    switchPage('songs');
+  buttonGenreSelection.onclick = () => {
+    switchPage('genre_selection');
   };
 }

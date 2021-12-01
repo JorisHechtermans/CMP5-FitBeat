@@ -1,15 +1,15 @@
 import * as index from "./pages/index";
-import * as spotifycheck from "./pages/spotify_check";
-import * as measureheartbeat from "./pages/measure_heartbeat";
-import * as genreselection from "./pages/genre_selection";
+import * as spotify_check from "./pages/spotify_check";
+import * as measure_heartbeat from "./pages/measure_heartbeat";
+import * as genre_selection from "./pages/genre_selection";
 import * as songs from "./pages/songs";
-import * as songinfo from "./pages/song_info";
+import * as song_info from "./pages/song_info";
 
 export default {
   index,
-  spotifycheck,
-  measureheartbeat,
-  genreselection,
+  spotify_check,
+  measure_heartbeat,
+  genre_selection,
   songs,
-  songinfo,
+  song_info,
 };

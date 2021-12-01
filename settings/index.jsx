@@ -1,3 +1,7 @@
+// !! spotify user login: https://dev.fitbit.com/build/reference/settings-api/
+
+
+
 registerSettingsPage(({ settings }) => (
   <Page>
     <Section
