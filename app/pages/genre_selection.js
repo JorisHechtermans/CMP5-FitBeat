@@ -1,10 +1,12 @@
 import document from "document";
 import { switchPage } from "../navigation";
+import { HeartRateSensor } from "heart-rate";
 import clock from 'clock';
 import { preferences } from 'user-settings';
 import zeroPad from '../utils/zero-pad';
 
 let buttonGetMusic = null;
+let hrIcon = "--";
 
 export function destroy() {
   console.log("destroy genre selection page");
@@ -14,12 +16,24 @@ export function destroy() {
 export function init() {
   console.log("init genre selection page");
   buttonGetMusic = document.getElementById('getmusic-button');
+  hrIcon = document.getElementById("hr-icon");
+
   const $time = document.getElementById('time');
   let time = '';
 
   buttonGetMusic.onclick = () => {
     switchPage('songs');
   };
+
+  //heartrate meten
+  let hrm = new HeartRateSensor();
+
+  hrm.onreading = function() {
+    console.log('Current heart rate: ' + `${hrm.heartRate}` )
+    hrIcon.text = `${hrm.heartRate}`;
+  }
+  hrm.start();
+
 
   // tijd tekenen
   function draw() {

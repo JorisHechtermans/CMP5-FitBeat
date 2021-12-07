@@ -1,8 +1,13 @@
 <svg viewport-fill="#200063">
 
-  <text id="time" fill="#FFFFFF" x="100%-80" y="37" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
+  <text id="time" fill="#FFFFFF" x="100%-80" y="42" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
-  <textarea fill="#E22905" x="18" y="10" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Song Info"/>
+  <image fill="#E22905" href="../beelden/hr.png"
+          width="40" height="40" x="51" y="15"/>
+
+  <text id="hr-icon" fill="#200063" x="70" y="42" font-size="21" font-family="System-Regular" text-anchor="middle" text-length="6"/>
+
+  <textarea fill="#E22905" x="18" y="60" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Song Info"/>
 
   <use href="#button" fill="#E22905" x="10%" y="100%-90" width="80%">
     <set href="text" attributeName="text-buffer" to="Back to index" />

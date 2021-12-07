@@ -1,6 +1,6 @@
 <svg viewport-fill="#200063">
 
-  <text id="time" fill="#FFFFFF" x="100%-80" y="37" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
+  <text id="time" fill="#FFFFFF" x="100%-80" y="42" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
   <image href="../beelden/Logo.png"
           width="180" height="130" x="80" y="80"/>

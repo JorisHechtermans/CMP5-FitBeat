@@ -2,9 +2,11 @@ import document from "document";
 import { switchPage } from "../navigation/index.js";
 import clock from 'clock';
 import { preferences } from 'user-settings';
+import { HeartRateSensor } from "heart-rate";
 import zeroPad from '../utils/zero-pad';
 
 let buttonSongInfo = null;
+let hrIcon = "--";
 
 export function destroy() {
   console.log("destroy songs page");
@@ -14,6 +16,7 @@ export function destroy() {
 export function init() {
   console.log("init songs page");
   buttonSongInfo = document.getElementById("infosong-button");
+  hrIcon = document.getElementById("hr-icon");
 
   const $time = document.getElementById('time');
   let time = '';
@@ -21,6 +24,15 @@ export function init() {
   buttonSongInfo.onclick = () => {
     switchPage("song_info");
   };
+
+  //heartrate meten
+  let hrm = new HeartRateSensor();
+
+  hrm.onreading = function() {
+    console.log('Current heart rate: ' + `${hrm.heartRate}` )
+    hrIcon.text = `${hrm.heartRate}`;
+  }
+  hrm.start();
 
   // tijd tekenen
   function draw() {

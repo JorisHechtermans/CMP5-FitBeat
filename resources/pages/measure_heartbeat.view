@@ -1,12 +1,17 @@
 <svg viewport-fill="#200063">
 
-  <text id="time" fill="#FFFFFF" x="100%-80" y="37" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
+  <text id="time" fill="#FFFFFF" x="100%-80" y="42" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
-  <textarea fill="#E22905" x="18" y="50" width="300" height="110" font-size="28" font-family="System-Regular" text-anchor="middle" text-buffer="Heartbeat"/>
+  <image fill="#E22905" href="../beelden/hr.png"
+          width="40" height="40" x="51" y="15"/>
 
-  <text id="heartRateLabel" fill="#E22905" x="30%" y="210" width="300" height="110" font-size="140" font-family="System-Regular"/>
+  <text id="hr-icon" fill="#200063" x="70" y="42" font-size="21" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
-  <use href="#button" fill="#05E298" x="10%" y="100%-90" width="80%">
+  <textarea fill="#E22905" x="18" y="55" width="300" height="110" font-size="28" font-family="System-Regular" text-anchor="middle" text-buffer="Heartbeat"/>
+
+  <text id="heartRateLabel" fill="#E22905" x="27%" y="210" width="300" height="110" font-size="130" font-family="System-Regular"/>
+
+  <use href="#button" fill="#E22905" x="10%" y="100%-90" width="80%">
     <set href="text" attributeName="text-buffer" to="Select Genre" />
     <set href="handle" attributeName="id" to="genre-button" />
   </use>

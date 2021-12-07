@@ -7,6 +7,7 @@ import zeroPad from '../utils/zero-pad';
 
 let buttonGenreSelection = null;
 let heartRateHandle = "--";
+let hrIcon = "--";
 
 export function destroy() {
   console.log("destroy heartbeat page");
@@ -17,6 +18,8 @@ export function init() {
   console.log("init heartbeat page");
   buttonGenreSelection = document.getElementById('genre-button');
   heartRateHandle = document.getElementById("heartRateLabel");
+  hrIcon = document.getElementById("hr-icon");
+
   const $time = document.getElementById('time');
   let time = '';
 
@@ -30,6 +33,7 @@ export function init() {
   hrm.onreading = function() {
     console.log('Current heart rate: ' + `${hrm.heartRate}` )
     heartRateHandle.text = `${hrm.heartRate}`;
+    hrIcon.text = `${hrm.heartRate}`;
   }
   hrm.start();
 
