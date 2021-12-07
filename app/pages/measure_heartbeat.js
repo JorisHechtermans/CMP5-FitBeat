@@ -1,7 +1,6 @@
 import document from "document";
 import { switchPage } from "../navigation";
 import { HeartRateSensor } from "heart-rate";
-import clock from "clock";
 
 let buttonGenreSelection = null;
 let heartRateHandle = "--";
