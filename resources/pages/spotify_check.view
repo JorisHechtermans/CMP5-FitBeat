@@ -1,6 +1,8 @@
 <svg viewport-fill="#200063">
 
-  <textarea fill="#E22905" x="18" y="10" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Spotify Check"/>
+  <text id="time" fill="#FFFFFF" x="100%-80" y="37" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
+
+  <textarea fill="#E22905" x="18" y="30" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Spotify Check"/>
 
   <use href="#button" fill="#05E298" x="10%" y="100%-90" width="80%">
     <set href="text" attributeName="text-buffer" to="Continue" />
