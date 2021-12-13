@@ -1,17 +1,14 @@
 import document from "document";
-import * as document from "document";
 import { switchPage } from "../navigation/index.js";
 import clock from 'clock';
 import { preferences } from 'user-settings';
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from '../utils/zero-pad';
 
-let buttonSongInfo = null;
 let hrIcon = "--";
 
 export function destroy() {
   console.log("destroy songs page");
-  buttonSongInfo = null;
 }
 
 export function init() {
@@ -27,7 +24,7 @@ export function init() {
 
   items.forEach((element, index) => {
     let touch = element.getElementById("touch");
-    touch.onclick = function(evt) {
+    touch.onclick = function() {
       console.log(`touched: Song ${index}`);
       switchPage("song_info");
     };
@@ -67,8 +64,6 @@ export function init() {
     // tekenen aanroepen
     draw();
   }
-  // use function above on clock tick
   clock.ontick = (evt) => updateTime(evt.date);
-  // use the function on start as well
   updateTime(new Date());
 }
