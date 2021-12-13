@@ -13,6 +13,26 @@
     <link rel="import" href="/mnt/sysassets/widgets/text_button.defs" />
     <link rel="import" href="components/button.gui" />
 
+    <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/scrollbar.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/tile_list_widget.defs" />
+
+    <symbol id="my-header" href="#tile-list-header" class="list-item  header">
+      <text id="text" />
+      <rect class="line" />
+    </symbol>
+
+    <symbol id="my-item" href="#tile-list-item" class="list-item">
+     <rect class="bg" />
+     <text id="text" />
+     <rect class="line" />
+     <rect id="touch" pointer-events="all" />
+   </symbol>
+
+    <symbol id="my-footer" href="#tile-list-footer" class="list-item footer">
+      <text id="text" />
+    </symbol>
+
 
   </defs>
 </svg>

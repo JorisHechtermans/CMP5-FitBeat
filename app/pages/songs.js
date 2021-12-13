@@ -1,4 +1,5 @@
 import document from "document";
+import * as document from "document";
 import { switchPage } from "../navigation/index.js";
 import clock from 'clock';
 import { preferences } from 'user-settings';
@@ -15,15 +16,22 @@ export function destroy() {
 
 export function init() {
   console.log("init songs page");
-  buttonSongInfo = document.getElementById("infosong-button");
   hrIcon = document.getElementById("hr-icon");
 
   const $time = document.getElementById('time');
   let time = '';
 
-  buttonSongInfo.onclick = () => {
-    switchPage("song_info");
-  };
+  //elk item in de songlijst klikbaar maken + linken aan songs_info
+  let list = document.getElementById("myList");
+  let items = list.getElementsByClassName("list-item");
+
+  items.forEach((element, index) => {
+    let touch = element.getElementById("touch");
+    touch.onclick = function(evt) {
+      console.log(`touched: Song ${index}`);
+      switchPage("song_info");
+    };
+  });
 
   //heartrate meten
   let hrm = new HeartRateSensor();

@@ -1,0 +1,45 @@
+#hoofdtitel {
+  background-color: #200063;
+}
+
+.list-item {
+  height: 90;
+}
+
+.list-item text {
+  fill: "white";
+  x: 50%;
+  text-anchor: middle;
+  font-size: 24;
+}
+
+.line {
+  height: 5;
+  width: 120%;
+  fill: #E22905;
+  x: -10%;
+  y: 100%;
+  z-index: 3;
+}
+
+.header text {
+  font-weight: bold;
+  fill: #E22905;
+  font-size: 30;
+}
+
+.bg {
+  fill: #200063;
+  width: 100%;
+  height: 90%;
+  x: 0;
+  y: 10;
+}
+
+#touch {
+  width: 100%;
+  height: 100%-6;
+  x: 0;
+  y: 0;
+  opacity: 0;
+}

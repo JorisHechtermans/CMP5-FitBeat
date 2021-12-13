@@ -1,17 +1,47 @@
 <svg viewport-fill="#200063">
 
+
+  <use id="myList" y="65" href="#tile-list" class="horizontal-pad">
+      <var id="separator-height-bottom" value="6" />
+      <use id="item0" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 0" />
+      </use>
+      <use id="item1" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 1" />
+      </use>
+      <use id="item2" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 2" />
+      </use>
+      <use id="item3" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 3" />
+      </use>
+      <use id="item4" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 4" />
+      </use>
+      <use id="item5" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 5" />
+      </use>
+      <use id="item6" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 6" />
+      </use>
+      <use id="item7" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 7" />
+      </use>
+      <use id="item8" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 8" />
+      </use>
+      <use id="item9" href="#my-item">
+        <set href="#text" attributeName="text-buffer" to="Song 9" />
+      </use>
+  </use>
+
+  <textarea id="hoofdtitel" fill="#E22905" x="18" y="40" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Songs"/>
+
   <text id="time" fill="#FFFFFF" x="100%-80" y="42" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
   <image fill="#E22905" href="../beelden/hr.png"
           width="40" height="40" x="51" y="15"/>
 
   <text id="hr-icon" fill="#200063" x="70" y="42" font-size="21" font-family="System-Regular" text-anchor="middle" text-length="6"/>
-
-  <textarea fill="#E22905" x="18" y="60" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Songs"/>
-
-  <use href="#button" fill="#E22905" x="10%" y="100%-90" width="80%">
-    <set href="text" attributeName="text-buffer" to="More song info" />
-    <set href="handle" attributeName="id" to="infosong-button" />
-  </use>
 
 </svg>
