@@ -4,8 +4,7 @@ import clock from 'clock';
 import { preferences } from 'user-settings';
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from '../utils/zero-pad';
-
-let hrIcon = "--";
+import { sendCommandRecommandations } from '../commands/index.js';
 
 export function destroy() {
   console.log("destroy songs page");
@@ -13,34 +12,39 @@ export function destroy() {
 
 export function init() {
   console.log("init songs page");
-  hrIcon = document.getElementById("hr-icon");
 
+  //elementen time en lijst
   const $time = document.getElementById('time');
   let time = '';
-
-  //elk item in de songlijst klikbaar maken + linken aan songs_info
   let list = document.getElementById("myList");
   let items = list.getElementsByClassName("list-item");
 
+  //elk item in de songlijst klikbaar maken + linken aan songs_info
   items.forEach((element, index) => {
     let touch = element.getElementById("touch");
     touch.onclick = function() {
       console.log(`touched: Song ${index}`);
-      switchPage("song_info");
+      switchPage("song_info", true);
     };
   });
 
-  //heartrate meten
+  //heartrate meten en tonen
   let hrm = new HeartRateSensor();
 
   hrm.onreading = function() {
-    console.log('Current heart rate: ' + `${hrm.heartRate}` )
+    let hrIcon = document.getElementById("hr-icon");
     hrIcon.text = `${hrm.heartRate}`;
+
+    console.log('Uw BPM is ' + `${hrm.heartRate}` );
+
+    // command uitsturen op basis van heartrate
+    sendCommandRecommandations(`${hrm.heartRate}`);
+
   }
   hrm.start();
 
   // tijd tekenen
-  function draw() {
+  function drawTime() {
     $time.text = time;
   }
 
@@ -62,8 +66,9 @@ export function init() {
     time = `${hours}:${mins}`;
 
     // tekenen aanroepen
-    draw();
+    drawTime();
   }
   clock.ontick = (evt) => updateTime(evt.date);
   updateTime(new Date());
+
 }

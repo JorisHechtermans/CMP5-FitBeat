@@ -4,7 +4,7 @@ import { localStorage } from "local-storage";
 import getRecommandations from "./api";
 
 // test spotify api:
-getRecommandations(150);
+// getRecommandations(150);
 
 settingsStorage.addEventListener("change", (evt) => {
   if (evt.key === "oauth") {
@@ -18,7 +18,7 @@ messaging.peerSocket.addEventListener("message", (evt) => {
 
   // handle your own messages from watch to companion below this line!
   switch (msg.title) {
-    case "get-recommandations":
+    case "recommandations":
       getRecommandations(msg.data);
       break;
     default:

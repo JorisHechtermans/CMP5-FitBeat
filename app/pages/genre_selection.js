@@ -6,7 +6,6 @@ import { preferences } from 'user-settings';
 import zeroPad from '../utils/zero-pad';
 
 let buttonGetMusic = null;
-let hrIcon = "--";
 
 export function destroy() {
   console.log("destroy genre selection page");
@@ -16,7 +15,6 @@ export function destroy() {
 export function init() {
   console.log("init genre selection page");
   buttonGetMusic = document.getElementById('getmusic-button');
-  hrIcon = document.getElementById("hr-icon");
 
   const $time = document.getElementById('time');
   let time = '';
@@ -30,6 +28,7 @@ export function init() {
 
   hrm.onreading = function() {
     console.log('Current heart rate: ' + `${hrm.heartRate}` )
+    let hrIcon = document.getElementById("hr-icon");
     hrIcon.text = `${hrm.heartRate}`;
   }
   hrm.start();
