@@ -17,9 +17,9 @@ messaging.peerSocket.addEventListener("message", (evt) => {
   const msg = evt.data;
 
   // handle your own messages from watch to companion below this line!
-  switch (msg.title) {
+  switch (msg.command) {
     case "recommandations":
-      getRecommandations(msg.data);
+      getRecommandations(msg.hr);
       break;
     default:
       console.log(`Communication onMessage called: ${JSON.stringify(msg)}`);

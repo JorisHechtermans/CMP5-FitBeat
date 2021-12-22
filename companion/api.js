@@ -58,8 +58,10 @@ function getRecommandationsSuccess(
                 console.log(e);
               });
           });
-      } else if (json && json.data) {
+      } else if (json && json.tracks) {
         console.log("->> success");
+        // reduce amount of info to send to the watch
+        // use outbox to send data to watch
       }
     });
   }

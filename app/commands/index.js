@@ -1,16 +1,17 @@
-import * as messaging from 'messaging';
+import * as messaging from "messaging";
 
-export function sendCommandRecommandations() {
+export function sendCommandRecommandations(hr) {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send({
-      command: 'recommandations',
+      command: "recommandations",
+      hr,
     });
   }
 }
 
 // set up
 export function init() {
-  messaging.peerSocket.addEventListener('open', () => {
-    sendCommandRecommandations();
+  messaging.peerSocket.addEventListener("open", () => {
+    // sendCommandRecommandations();
   });
 }
