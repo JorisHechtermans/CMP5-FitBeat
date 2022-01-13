@@ -8,20 +8,20 @@ import { sendCommandRecommandations } from "../commands/index.js";
 import { getStateItem, setStateCallback } from '../state';
 import { init as initState } from '../state';
 
+let items = [];
+let itemsArtiest = [];
+
 initState();
 
-export function destroy() {
-  console.log("destroy songs page");
-}
-
+//nummers en artiesten tekenen
 function draw() {
   let i = 0;
   let ii = 0;
   let list = document.getElementById("myList");
   const songs = getStateItem('songlist');
   const artists = getStateItem('artistlist');
-  let items = list.getElementsByClassName("list-item");
-  let itemsArtiest = list.getElementsByClassName("textartiest");
+  items = list.getElementsByClassName("list-item");
+  itemsArtiest = list.getElementsByClassName("textartiest");
 
   items.forEach((item) => {
     item.text = songs[i];
@@ -99,4 +99,10 @@ export function init() {
 
   draw();
   setStateCallback('songs', draw);
+}
+
+export function destroy() {
+  console.log("destroy songs page");
+  items.length = 0;
+  itemsArtiest.length = 0;
 }
