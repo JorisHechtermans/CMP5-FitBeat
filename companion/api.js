@@ -113,5 +113,12 @@ export default function getRecommandations(tempoInBMP) {
       });
   } else {
     console.log("Not logged in");
+
+    //Spotify check wijzigen
+    document.getElementById("failedtext").style.display = "block";
+    document.getElementById("failedbutton").style.display = "block";
+
+    document.getElementById("succestext").style.display = "none";
+    document.getElementById("succesbutton").style.display = "none";
   }
 }

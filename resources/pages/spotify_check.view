@@ -2,11 +2,19 @@
 
   <text id="time" fill="#FFFFFF" x="100%-80" y="42" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
-  <textarea fill="#E22905" x="18" y="60" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Spotify Check"/>
+  <textarea class="succes" id="succestext" fill="#05E298" x="10" y="60" width="300" height="110" font-size="24" font-family="System-Regular" text-anchor="middle" text-buffer="Spotify connected."/>
 
-  <use href="#button" fill="#05E298" x="10%" y="100%-90" width="80%">
+  <textarea class="failed" id="failedtext" fill="#E22905" x="20" y="75" width="300" height="200" font-size="28" font-family="System-Regular" text-buffer="Please connect your Spotify account in the settings menu on your smartphone."/>
+
+  <image class="succes" href="../beelden/checkmark.png"
+          width="130" height="130" x="100" y="100"/>
+
+  <use href="#button" class="succes" id="succesbutton" fill="#05E298" x="10%" y="100%-90" width="80%">
     <set href="text" attributeName="text-buffer" to="Continue" />
     <set href="handle" attributeName="id" to="continue" />
   </use>
 
+  <use href="#button" class="failed" id="failedbutton" fill="#E22905" x="10%" y="100%-90" width="80%">
+    <set href="text" attributeName="text-buffer" to="Homescreen" />
+  </use>
 </svg>

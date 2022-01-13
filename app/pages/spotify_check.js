@@ -3,8 +3,10 @@ import { switchPage } from "../navigation/index.js";
 import clock from 'clock';
 import { preferences } from 'user-settings';
 import zeroPad from '../utils/zero-pad';
+import { sendCommandRecommandations } from "../commands/index.js";
 
 let button = null;
+let buttonFailed = null;
 
 export function destroy() {
   console.log("destroy spotify page");
@@ -12,13 +14,19 @@ export function destroy() {
 }
 
 export function init() {
+  sendCommandRecommandations(150); //spotify login testen
   console.log("init spotify page");
   button = document.getElementById("continue");
+  buttonFailed = document.getElementById("failedbutton");
   const $time = document.getElementById('time');
   let time = '';
 
   button.onclick = () => {
     switchPage("measure_heartbeat");
+  };
+
+  buttonFailed.onclick = () => {
+    switchPage("index");
   };
 
   // tijd tekenen
