@@ -1,4 +1,6 @@
 import { localStorage } from "local-storage";
+import { outbox } from "file-transfer";
+import { settingsStorage } from 'settings';
 
 function refreshToken(token) {
   console.log(token);
@@ -62,6 +64,10 @@ function getRecommandationsSuccess(
         console.log("->> success");
         // reduce amount of info to send to the watch
         // use outbox to send data to watch
+        outbox
+          .enqueue('settings.cbor', cbor.encode(settings))
+          .then(() => console.log('settings sent'))
+          .catch((error) => console.log(`send error: ${error}`));
       }
     });
   }
