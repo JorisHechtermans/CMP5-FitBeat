@@ -3,7 +3,8 @@ import * as filesystem from 'fs';
 import * as messaging from 'messaging';
 
 const state = {
-  recommendations: '',
+  songlist: [],
+  artistlist: [],
   // add other state-items here
 };
 
@@ -69,16 +70,29 @@ function processFiles() {
 
       updateState();
       callback();
-    } else if (fileName === 'recommendations.cbor') {
+    } else if (fileName === 'songlist.cbor') {
       const data = filesystem.readFileSync(fileName, 'cbor');
 
-      state.recommendations = data.recommendations;
+      Object.keys(state).forEach((key) => {
+        if (typeof data[key] !== 'undefined') state[key] = data[key];
+      });
 
-      console.log(state.recommendations)
+      console.log(state.songlist)
 
       updateState();
       callback();
-    }
+    } else if (fileName === 'artistlist.cbor') {
+      const data = filesystem.readFileSync(fileName, 'cbor');
+
+      Object.keys(state).forEach((key) => {
+        if (typeof data[key] !== 'undefined') state[key] = data[key];
+      });
+
+      console.log(state.artistlist)
+
+      updateState();
+      callback();
+        }
   }
 }
 

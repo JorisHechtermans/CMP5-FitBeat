@@ -40,6 +40,7 @@ function getRecommandationsSuccess(
   let artistlist = [];
   let songs = '';
   let artists = '';
+  let i = 0;
 
   if (response && response.json) {
     response.json().then((json) => {
@@ -70,7 +71,7 @@ function getRecommandationsSuccess(
         // reduce amount of info to send to the watch
         json.tracks.forEach((track) => {
           songs = track.name;
-          artists = JSON.stringify(track.artists.name);
+          artists = track.artists[i].name;
           artistlist.push(artists);
           songlist.push(songs);
         });
@@ -79,10 +80,14 @@ function getRecommandationsSuccess(
         console.log("artiesten: " + artistlist);
         // use outbox to send data to watch
         outbox
-          .enqueue('recommendations.cbor', cbor.encode({ songlist }))
+          .enqueue('songlist.cbor', cbor.encode({ songlist }))
           .then(() => console.log('songs sent'))
           .catch((error) => console.log(`send error: ${error}`));
-      }
+      outbox
+        .enqueue('artistlist.cbor', cbor.encode({ artistlist }))
+        .then(() => console.log('artists sent'))
+        .catch((error) => console.log(`send error: ${error}`));
+    }
     });
   }
 }
