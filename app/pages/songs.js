@@ -5,6 +5,9 @@ import { preferences } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
 import { sendCommandRecommandations } from "../commands/index.js";
+import { init as initState } from '../state';
+
+initState();
 
 export function destroy() {
   console.log("destroy songs page");

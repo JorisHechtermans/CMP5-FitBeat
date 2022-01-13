@@ -3,7 +3,7 @@ import * as filesystem from 'fs';
 import * as messaging from 'messaging';
 
 const state = {
-  recommandations: [],
+  recommendations: '',
   // add other state-items here
 };
 
@@ -69,12 +69,12 @@ function processFiles() {
 
       updateState();
       callback();
-    } else if (fileName === 'recommandations.cbor') {
+    } else if (fileName === 'recommendations.cbor') {
       const data = filesystem.readFileSync(fileName, 'cbor');
 
-      Object.keys(state).forEach((key) => {
-        if (typeof data[key] !== 'undefined') state[key] = data[key];
-      });
+      state.recommendations = data.recommendations;
+
+      console.log(state.recommendations)
 
       updateState();
       callback();

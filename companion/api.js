@@ -1,6 +1,6 @@
 import { localStorage } from "local-storage";
 import { outbox } from "file-transfer";
-import { settingsStorage } from 'settings';
+import * as cbor from 'cbor';
 
 function refreshToken(token) {
   console.log(token);
@@ -18,7 +18,7 @@ function refreshToken(token) {
 function getRecommandationsFunction(token, tempoInBMP) {
   return fetch(
     // genre of artist was required!
-    `https://api.spotify.com/v1/recommendations?seed_genres=classical&target_tempo=${tempoInBMP}`,
+    `https://api.spotify.com/v1/recommendations?seed_genres=pop&target_tempo=${tempoInBMP}`,
     {
       method: "GET",
       headers: {
@@ -36,6 +36,11 @@ function getRecommandationsSuccess(
   tempoInBMP,
   retry
 ) {
+  let songlist = [];
+  let artistlist = [];
+  let songs = '';
+  let artists = '';
+
   if (response && response.json) {
     response.json().then((json) => {
       console.log(json);
@@ -63,10 +68,19 @@ function getRecommandationsSuccess(
       } else if (json && json.tracks) {
         console.log("->> success");
         // reduce amount of info to send to the watch
+        json.tracks.forEach((track) => {
+          songs = track.name;
+          artists = JSON.stringify(track.artists.name);
+          artistlist.push(artists);
+          songlist.push(songs);
+        });
+
+        console.log("nummers: " + songlist);
+        console.log("artiesten: " + artistlist);
         // use outbox to send data to watch
         outbox
-          .enqueue('settings.cbor', cbor.encode(settings))
-          .then(() => console.log('settings sent'))
+          .enqueue('recommendations.cbor', cbor.encode({ songlist }))
+          .then(() => console.log('songs sent'))
           .catch((error) => console.log(`send error: ${error}`));
       }
     });
