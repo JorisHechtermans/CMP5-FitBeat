@@ -6,11 +6,22 @@
   height: 90;
 }
 
-.list-item text {
-  fill: "white";
+.texttitel {
+  fill: white;
+  y: 50%;
   x: 50%;
   text-anchor: middle;
-  font-size: 24;
+  font-size: 23;
+  font-weight: bold;
+}
+
+.textartiest {
+  display: block;
+  fill: white;
+  y: 80%;
+  x: 50%;
+  text-anchor: middle;
+  font-size: 15;
 }
 
 .line {

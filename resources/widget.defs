@@ -24,7 +24,8 @@
 
     <symbol id="my-item" href="#tile-list-item" class="list-item">
      <rect class="bg" />
-     <text id="text" />
+     <text id="text" class="texttitel" text-length="40" />
+     <text id="textartiest" class="textartiest" text-length="40" />
      <rect class="line" />
      <rect id="touch" pointer-events="all" />
    </symbol>

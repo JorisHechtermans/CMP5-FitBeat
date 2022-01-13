@@ -5,12 +5,33 @@ import { preferences } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
 import { sendCommandRecommandations } from "../commands/index.js";
+import { getStateItem, setStateCallback } from '../state';
 import { init as initState } from '../state';
 
 initState();
 
 export function destroy() {
   console.log("destroy songs page");
+}
+
+function draw() {
+  let i = 0;
+  let ii = 0;
+  let list = document.getElementById("myList");
+  const songs = getStateItem('songlist');
+  const artists = getStateItem('artistlist');
+  let items = list.getElementsByClassName("list-item");
+  let itemsArtiest = list.getElementsByClassName("textartiest");
+
+  items.forEach((item) => {
+    item.text = songs[i];
+    i++;
+  });
+
+  itemsArtiest.forEach((itemArtiest) => {
+    itemArtiest.text = artists[ii];
+    ii++;
+  });
 }
 
 export function init() {
@@ -45,6 +66,9 @@ export function init() {
   };
   hrm.start();
 
+  //nummers opvragen
+
+
   // tijd tekenen
   function drawTime() {
     $time.text = time;
@@ -72,4 +96,7 @@ export function init() {
   }
   clock.ontick = (evt) => updateTime(evt.date);
   updateTime(new Date());
+
+  draw();
+  setStateCallback('songs', draw);
 }

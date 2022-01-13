@@ -44,7 +44,7 @@ function getRecommandationsSuccess(
 
   if (response && response.json) {
     response.json().then((json) => {
-      console.log(json);
+      // console.log(json);
       if (json && json.error && json.error.status === 401 && !retry) {
         refreshToken(refresh_token)
           .then((oauth) => oauth.json())
@@ -76,18 +76,16 @@ function getRecommandationsSuccess(
           songlist.push(songs);
         });
 
-        console.log("nummers: " + songlist);
-        console.log("artiesten: " + artistlist);
         // use outbox to send data to watch
         outbox
           .enqueue('songlist.cbor', cbor.encode({ songlist }))
           .then(() => console.log('songs sent'))
           .catch((error) => console.log(`send error: ${error}`));
-      outbox
-        .enqueue('artistlist.cbor', cbor.encode({ artistlist }))
-        .then(() => console.log('artists sent'))
-        .catch((error) => console.log(`send error: ${error}`));
-    }
+        outbox
+          .enqueue('artistlist.cbor', cbor.encode({ artistlist }))
+          .then(() => console.log('artists sent'))
+          .catch((error) => console.log(`send error: ${error}`));
+      }
     });
   }
 }

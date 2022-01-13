@@ -2,33 +2,42 @@
 
 
   <use id="myList" y="65" href="#tile-list" class="horizontal-pad">
-      <var id="separator-height-bottom" value="6" />
+      <var id="separator-height-bottom" value="16" />
       <use id="item0" href="#my-item">
-        <set href="#text" attributeName="text-buffer" to="Song 0" />
+        <set href="#text" attributeName="text-buffer" to="Song 1" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 1" />
       </use>
       <use id="item1" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 1" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 2" />
       </use>
       <use id="item2" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 2" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 3" />
       </use>
       <use id="item3" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 3" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 4" />
       </use>
       <use id="item4" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 4" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 5" />
       </use>
       <use id="item5" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 5" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 6" />
       </use>
       <use id="item6" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 6" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 7" />
       </use>
       <use id="item7" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 7" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 8" />
       </use>
       <use id="item8" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 8" />
+        <set href="#textartiest" attributeName="text-buffer" to="Artist 8" />
       </use>
       <use id="item9" href="#my-item">
         <set href="#text" attributeName="text-buffer" to="Song 9" />
