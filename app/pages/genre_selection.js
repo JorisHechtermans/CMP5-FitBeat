@@ -26,7 +26,7 @@ function draw() {
         let touch = tile.getElementById("touch");
         touch.onclick = function() {
           setStateItem('genreId', info.value.id)
-          switchPage("songs", true);
+          switchPage("songs");
         };
       }
     }

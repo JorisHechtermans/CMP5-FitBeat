@@ -2,36 +2,36 @@
   <use id="mySongList" y="0" href="#tile-list" class="horizontal-pad">
       <var id="separator-height-bottom" value="16" />
       <use id="item0" href="#my-song-item">
-        <set href="#texttitel" attributeName="text-buffer" to="loading song..." />
-        <set href="#textartiest" attributeName="text-buffer" to="loading artist..." />
+        <set href="#texttitel" attributeName="text-buffer" to="Waiting for heartrate..." />
+        <set href="#textartiest" attributeName="text-buffer" to="Waiting for heartrate..." />
       </use>
       <use id="item1" href="#my-song-item">
-        <set href="#texttitel" attributeName="text-buffer" to="loading song..." />
-        <set href="#textartiest" attributeName="text-buffer" to="loading artist..." />
+        <set href="#texttitel" attributeName="text-buffer" to="Waiting for heartrate..." />
+        <set href="#textartiest" attributeName="text-buffer" to="Waiting for heartrate..." />
       </use>
       <use id="item2" href="#my-song-item">
-        <set href="#texttitel" attributeName="text-buffer" to="loading song..." />
-        <set href="#textartiest" attributeName="text-buffer" to="loading artist..." />
+        <set href="#texttitel" attributeName="text-buffer" to="Waiting for heartrate..." />
+        <set href="#textartiest" attributeName="text-buffer" to="Waiting for heartrate..." />
       </use>
       <use id="item3" href="#my-song-item">
-        <set href="#texttitel" attributeName="text-buffer" to="loading song..." />
-        <set href="#textartiest" attributeName="text-buffer" to="loading artist..." />
+        <set href="#texttitel" attributeName="text-buffer" to="Waiting for heartrate..." />
+        <set href="#textartiest" attributeName="text-buffer" to="Waiting for heartrate..." />
       </use>
       <use id="item4" href="#my-song-item">
-        <set href="#texttitel" attributeName="text-buffer" to="loading song..." />
-        <set href="#textartiest" attributeName="text-buffer" to="loading artist..." />
+        <set href="#texttitel" attributeName="text-buffer" to="Waiting for heartrate..." />
+        <set href="#textartiest" attributeName="text-buffer" to="Waiting for heartrate..." />
       </use>
       <use id="item5" href="#my-song-item">
-        <set href="#texttitel" attributeName="text-buffer" to="loading song..." />
-        <set href="#textartiest" attributeName="text-buffer" to="loading artist..." />
+        <set href="#texttitel" attributeName="text-buffer" to="Waiting for heartrate..." />
+        <set href="#textartiest" attributeName="text-buffer" to="Waiting for heartrate..." />
       </use>
       <use id="item6" href="#my-song-item">
-        <set href="#texttitel" attributeName="text-buffer" to="loading song..." />
-        <set href="#textartiest" attributeName="text-buffer" to="loading artist..." />
+        <set href="#texttitel" attributeName="text-buffer" to="Waiting for heartrate..." />
+        <set href="#textartiest" attributeName="text-buffer" to="Waiting for heartrate..." />
       </use>
       <use id="item7" href="#my-song-item">
-        <set href="#texttitel" attributeName="text-buffer" to="loading song..." />
-        <set href="#textartiest" attributeName="text-buffer" to="loading artist..." />
+        <set href="#texttitel" attributeName="text-buffer" to="Waiting for heartrate..." />
+        <set href="#textartiest" attributeName="text-buffer" to="Waiting for heartrate..." />
       </use>
       <use id="item8" href="#my-song-item">
         <set href="#texttitel" attributeName="text-buffer" to="Song 8" />
