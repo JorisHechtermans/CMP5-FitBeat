@@ -11,7 +11,7 @@ import { init as initState } from '../state';
 let items = [];
 let itemsSong = [];
 let itemsArtiest = [];
-const genre = null;
+let genre = "loading...";
 
 initState();
 
@@ -65,18 +65,17 @@ export function init() {
     console.log("Uw BPM is " + `${hrm.heartRate}`);
 
     //opvragen welk genre gekozen is
+    getListItem(getStateItem('genreId'));
     const item = getStateItem('listItem');
-    const genre = null;
     console.log(JSON.stringify(item));
     if (item) {
-      const genre = item.value;
+      genre = item.value;
       console.log("het genre is " + genre);
+      sendCommandRecommandations(genre, hrm.heartRate);
+      draw();
     }
-
-    getListItem(getStateItem('genreId'));
     // command uitsturen op basis van genre en heartrate
-    sendCommandRecommandations(genre, hrm.heartRate);
-    draw();
+
   };
   hrm.start();
 
@@ -108,12 +107,11 @@ export function init() {
   }
   clock.ontick = (evt) => updateTime(evt.date);
   updateTime(new Date());
-
-  setStateCallback('songs', draw);
 }
 
 export function destroy() {
   console.log("destroy songs page");
+  genre = null;
   items.length = 0;
   itemsArtiest.length = 0;
   removeStateCallback('songs', draw);
