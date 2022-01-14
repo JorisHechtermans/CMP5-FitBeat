@@ -21,7 +21,7 @@ messaging.peerSocket.addEventListener("message", (evt) => {
   // handle your own messages from watch to companion below this line!
   switch (msg.command) {
     case "recommandations":
-      getRecommandations(msg.hr);
+      getRecommandations(msg.genre, msg.hr);
       break;
     case "getListData":
       getListData();

@@ -1,10 +1,11 @@
 import * as messaging from "messaging";
 
-export function sendCommandRecommandations(hr) {
+export function sendCommandRecommandations(genre,hr) {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send({
       command: "recommandations",
       hr,
+      genre,
     });
   }
 }

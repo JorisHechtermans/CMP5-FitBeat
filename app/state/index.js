@@ -6,7 +6,7 @@ const state = {
   songlist: [],
   artistlist: [],
   listData: [],
-  listItem: null,
+  listItem: [],
   // add other state-items here
 };
 

@@ -16,10 +16,10 @@ function refreshToken(token) {
   });
 }
 
-function getRecommandationsFunction(token, tempoInBMP) {
+function getRecommandationsFunction(token, genre, tempoInBMP) {
   return fetch(
     // genre of artist was required!
-    `https://api.spotify.com/v1/recommendations?seed_genres=pop&target_tempo=${tempoInBMP}`,
+    `https://api.spotify.com/v1/recommendations?seed_genres=${genre}&target_tempo=${tempoInBMP}`,
     {
       method: "GET",
       headers: {
@@ -34,6 +34,7 @@ function getRecommandationsSuccess(
   response,
   access_token,
   refresh_token,
+  genre,
   tempoInBMP,
   retry
 ) {
@@ -45,7 +46,7 @@ function getRecommandationsSuccess(
 
   if (response && response.json) {
     response.json().then((json) => {
-      // console.log(json);
+      console.log(json);
       if (json && json.error && json.error.status === 401 && !retry) {
         refreshToken(refresh_token)
           .then((oauth) => oauth.json())
@@ -53,12 +54,13 @@ function getRecommandationsSuccess(
             console.log(oauth);
             localStorage.setItem("oauth", JSON.stringify(oauth));
 
-            getRecommandationsFunction(oauth.access_token, tempoInBMP)
+            getRecommandationsFunction(oauth.access_token, genre, tempoInBMP)
               .then((second_response) => {
                 getRecommandationsSuccess(
                   second_response,
                   oauth.access_token,
                   refresh_token,
+                  genre,
                   tempoInBMP,
                   true
                 );
@@ -122,7 +124,7 @@ export function getListItem(id) {
 }
 
 
-export default function getRecommandations(tempoInBMP) {
+export default function getRecommandations(genre, tempoInBMP) {
   if (
     localStorage.getItem("oauth") &&
     JSON.parse(localStorage.getItem("oauth"))
@@ -131,12 +133,13 @@ export default function getRecommandations(tempoInBMP) {
     const access_token = oauth.access_token;
     const refresh_token = oauth.refresh_token;
 
-    getRecommandationsFunction(access_token, tempoInBMP)
+    getRecommandationsFunction(access_token, genre, tempoInBMP)
       .then((response) => {
         getRecommandationsSuccess(
           response,
           access_token,
           refresh_token,
+          genre,
           tempoInBMP
         );
       })
@@ -146,11 +149,6 @@ export default function getRecommandations(tempoInBMP) {
   } else {
     console.log("Not logged in");
 
-    //Spotify check wijzigen
-    document.getElementById("failedtext").style.display = "block";
-    document.getElementById("failedbutton").style.display = "block";
 
-    document.getElementById("succestext").style.display = "none";
-    document.getElementById("succesbutton").style.display = "none";
   }
 }

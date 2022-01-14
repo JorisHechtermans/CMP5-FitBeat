@@ -4,8 +4,8 @@ import clock from "clock";
 import { preferences } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
-import { sendCommandRecommandations } from "../commands/index.js";
-import { getStateItem, setStateCallback, removeStateCallback } from '../state';
+import { sendCommandRecommandations, getListItem } from "../commands/index.js";
+import { getStateItem, setStateCallback, removeStateCallback, listItem } from '../state';
 import { init as initState } from '../state';
 
 let items = [];
@@ -64,12 +64,18 @@ export function init() {
 
     console.log("Uw BPM is " + `${hrm.heartRate}`);
 
+    //opvragen welk genre gekozen is
+
+    const item = getStateItem('listItem');
+    console.log(JSON.stringify(item));
+    const genre = item.value;
+    console.log("het genre is " + genre);
+
+    getListItem(getStateItem('genreId'))
     // command uitsturen op basis van heartrate
-    sendCommandRecommandations(hrm.heartRate);
+    sendCommandRecommandations(genre, hrm.heartRate);
   };
   hrm.start();
-
-  //nummers opvragen
 
 
   // tijd tekenen
