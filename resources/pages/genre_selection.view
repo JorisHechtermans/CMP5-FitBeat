@@ -28,6 +28,11 @@
       <text id="genre-text" fill="#200063" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Techno" />
       <rect id="touch" pointer-events="all" />
     </use>
+    <use href="#scrollview-item" class="scrollview-item" height="170">
+      <rect width="100%" height="300" fill="#E22905" />
+      <text id="genre-text" fill="#200063" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Dance" />
+      <rect id="touch" pointer-events="all" />
+    </use>
   </use>
 
   <rect width="400" height="87" fill="#200063" />
