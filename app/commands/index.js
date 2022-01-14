@@ -32,6 +32,6 @@ export function getListItem(id) {
 // set up
 export function init() {
   messaging.peerSocket.addEventListener("open", () => {
-    getListData();
+
   });
 }

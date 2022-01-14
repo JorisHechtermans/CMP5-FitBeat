@@ -19,7 +19,6 @@ function draw() {
       };
     },
     configureTile: (tile, info) => {
-      console.log(`Item: ${info.index}`)
       if (info.type == "my-pool") {
         tile.getElementById("text").text = `${info.value.name}`;
 
@@ -40,8 +39,8 @@ export function init() {
   console.log("init genre selection page");
   myList = document.getElementById("myList");
 
-  setStateCallback('genre_selection', draw);
   getListData();
+  setStateCallback('genre_selection', draw);
 
 }
 

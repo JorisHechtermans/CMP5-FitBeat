@@ -88,6 +88,7 @@ function processFiles() {
         if (typeof data[key] !== 'undefined') state[key] = data[key];
       });
 
+
       updateState();
       callback();
     } else if (fileName === 'listData.cbor') {
