@@ -1,0 +1,9 @@
+<defs>
+  <symbol id="my-song-item" href="#tile-list-item" class="song-list-item">
+     <rect class="song-bg" />
+     <text id="texttitel" class="texttitel" text-length="100" />
+     <text id="textartiest" class="textartiest" text-length="40" />
+     <rect class="song-line" />
+     <rect id="touch" pointer-events="all" />
+  </symbol>
+</defs>

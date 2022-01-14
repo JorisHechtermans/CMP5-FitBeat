@@ -1,6 +1,7 @@
 import { localStorage } from "local-storage";
 import { outbox } from "file-transfer";
 import * as cbor from 'cbor';
+import { data } from './data.js';
 
 function refreshToken(token) {
   console.log(token);
@@ -89,6 +90,37 @@ function getRecommandationsSuccess(
     });
   }
 }
+
+// Datalijst genres doorsturen
+export function getListData() {
+  const listData = data.map((item) => {
+    return {
+      name: item.name,
+      id: item.id,
+    };
+  });
+    console.log(listData);
+        // use outbox to send data to watch
+        outbox
+          .enqueue('listData.cbor', cbor.encode({ listData }))
+          .then(() => console.log('data genres sent'))
+          .catch((error) => console.log(`send error: ${error}`));
+}
+
+// Data item genres doorsturen
+export function getListItem(id) {
+  const listItem = data.find((item) => {
+    return id === item.id;
+  });
+
+    console.log(listItem);
+        // use outbox to send data to watch
+        outbox
+          .enqueue('listItem.cbor', cbor.encode({ listItem }))
+          .then(() => console.log('list item genres sent'))
+          .catch((error) => console.log(`send error: ${error}`));
+}
+
 
 export default function getRecommandations(tempoInBMP) {
   if (

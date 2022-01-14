@@ -5,6 +5,8 @@ import * as messaging from 'messaging';
 const state = {
   songlist: [],
   artistlist: [],
+  listData: [],
+  listItem: null,
   // add other state-items here
 };
 
@@ -92,7 +94,29 @@ function processFiles() {
 
       updateState();
       callback();
-        }
+    } else if (fileName === 'listData.cbor') {
+      const data = filesystem.readFileSync(fileName, 'cbor');
+
+      Object.keys(state).forEach((key) => {
+        if (typeof data[key] !== 'undefined') state[key] = data[key];
+      });
+
+      console.log(state.artistlist)
+
+      updateState();
+      callback();
+    } else if (fileName === 'listItem.cbor') {
+      const data = filesystem.readFileSync(fileName, 'cbor');
+
+      Object.keys(state).forEach((key) => {
+        if (typeof data[key] !== 'undefined') state[key] = data[key];
+      });
+
+      console.log(state.artistlist)
+
+      updateState();
+      callback();
+      }
   }
 }
 

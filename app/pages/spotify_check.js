@@ -3,7 +3,7 @@ import { switchPage } from "../navigation/index.js";
 import clock from 'clock';
 import { preferences } from 'user-settings';
 import zeroPad from '../utils/zero-pad';
-import { sendCommandRecommandations } from "../commands/index.js";
+// import { sendCommandRecommandations } from "../commands/index.js";
 
 let button = null;
 let buttonFailed = null;
@@ -14,7 +14,7 @@ export function destroy() {
 }
 
 export function init() {
-  sendCommandRecommandations(150); //spotify login testen
+//  sendCommandRecommandations(150); //spotify login testen
   console.log("init spotify page");
   button = document.getElementById("continue");
   buttonFailed = document.getElementById("failedbutton");

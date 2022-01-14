@@ -1,0 +1,8 @@
+<defs>
+  <symbol id="my-item" href="#tile-list-item" class="list-item" display="none">
+    <rect class="bg" />
+    <text id="text" text-length="100"/>
+    <rect class="line" />
+    <rect id="touch" pointer-events="all" />
+  </symbol>
+</defs>

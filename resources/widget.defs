@@ -8,40 +8,21 @@
     <link rel="stylesheet" href="pages/songs.css" />
     <link rel="stylesheet" href="pages/spotify_check.css" />
 
+    <link rel="stylesheet" href="components/genrelist.css" />
+    <link rel="stylesheet" href="components/songlist.css" />
+
 
     <link rel="import" href="/mnt/sysassets/system_widget.defs" />
     <link rel="import" href="/mnt/sysassets/widgets/text_button.defs" />
+
+    <!-- Additional Imports List Songs & Genres -->
+      <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.defs" />
+      <link rel="import" href="/mnt/sysassets/widgets/scrollbar.defs" />
+      <link rel="import" href="/mnt/sysassets/widgets/tile_list_widget.defs" />
+
     <link rel="import" href="components/button.gui" />
-
-    <!-- Additional Imports Scroll View Genres -->
-    <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.defs" />
-    <link rel="import" href="/mnt/sysassets/widgets/scrollview_widget.defs" />
-
-    <!-- Additional Imports List Songs -->
-    <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.defs" />
-    <link rel="import" href="/mnt/sysassets/widgets/scrollbar.defs" />
-    <link rel="import" href="/mnt/sysassets/widgets/tile_list_widget.defs" />
-
-    <!-- Symbol Scroll View Genres -->
-
-    <!-- Symbol List Songs -->
-    <symbol id="my-header" href="#tile-list-header" class="list-item  header">
-      <text id="text" />
-      <rect class="line" />
-    </symbol>
-
-    <symbol id="my-item" href="#tile-list-item" class="list-item">
-     <rect class="bg" />
-     <text id="text" class="texttitel" text-length="100" />
-     <text id="textartiest" class="textartiest" text-length="40" />
-     <rect class="line" />
-     <rect id="touch" pointer-events="all" />
-   </symbol>
-
-    <symbol id="my-footer" href="#tile-list-footer" class="list-item footer">
-      <text id="text" />
-    </symbol>
-
+    <link rel="import" href="components/genrelist.gui" />
+    <link rel="import" href="components/songlist.gui" />
 
   </defs>
 </svg>

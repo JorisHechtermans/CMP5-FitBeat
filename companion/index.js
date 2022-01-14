@@ -2,6 +2,8 @@ import * as messaging from "messaging";
 import { settingsStorage } from "settings";
 import { localStorage } from "local-storage";
 import getRecommandations from "./api";
+import { getListData } from "./api";
+import { getListItem } from "./api";
 
 // test spotify api:
 // getRecommandations(150);
@@ -20,6 +22,12 @@ messaging.peerSocket.addEventListener("message", (evt) => {
   switch (msg.command) {
     case "recommandations":
       getRecommandations(msg.hr);
+      break;
+    case "getListData":
+      getListData();
+      break;
+    case "getListItem":
+      getListItem(msg.id);
       break;
     default:
       console.log(`Communication onMessage called: ${JSON.stringify(msg)}`);

@@ -5,10 +5,11 @@ import { preferences } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
 import { sendCommandRecommandations } from "../commands/index.js";
-import { getStateItem, setStateCallback } from '../state';
+import { getStateItem, setStateCallback, removeStateCallback } from '../state';
 import { init as initState } from '../state';
 
 let items = [];
+let itemsSong = [];
 let itemsArtiest = [];
 
 initState();
@@ -17,14 +18,16 @@ initState();
 function draw() {
   let i = 0;
   let ii = 0;
-  let list = document.getElementById("myList");
+  let list = document.getElementById("mySongList");
   const songs = getStateItem('songlist');
+  console.log("songs:" + songs);
   const artists = getStateItem('artistlist');
-  items = list.getElementsByClassName("list-item");
+  items = list.getElementsByClassName("song-list-item");
+  itemsSong = list.getElementsByClassName("texttitel");
   itemsArtiest = list.getElementsByClassName("textartiest");
 
-  items.forEach((item) => {
-    item.text = songs[i];
+  itemsSong.forEach((itemSong) => {
+    itemSong.text = songs[i];
     i++;
   });
 
@@ -40,8 +43,8 @@ export function init() {
   //elementen time en lijst
   const $time = document.getElementById("time");
   let time = "";
-  let list = document.getElementById("myList");
-  let items = list.getElementsByClassName("list-item");
+  let list = document.getElementById("mySongList");
+  let items = list.getElementsByClassName("song-list-item");
 
   //elk item in de songlijst klikbaar maken + linken aan songs_info
   items.forEach((element, index) => {
@@ -105,4 +108,5 @@ export function destroy() {
   console.log("destroy songs page");
   items.length = 0;
   itemsArtiest.length = 0;
+  removeStateCallback('songs', draw);
 }

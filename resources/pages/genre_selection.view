@@ -1,37 +1,18 @@
 <svg viewport-fill="#200063">
 
-  <use href="#scrollview" id="myScrollview">
-    <rect width="400" height="87" fill="#200063" />
+  <use id="myList" href="#tile-list">
+    <var id="virtual" value="1" />
+    <var id="reorder-enabled" value="0"/>
+    <var id="peek-enabled" value="0"/>
+    <var id="separator-height-bottom" value="2" />
 
-    <use href="#scrollview-item" class="scrollview-item" display="flexible-height">
-      <rect width="100%" height="70" fill="#FFFFFF" />
-      <text id="genre-text" fill="#FFFFFF" text-anchor="middle" text-buffer="NOT SHOWN">
-      <rect id="touch" pointer-events="all" />
-    </use>
-    <use href="#scrollview-item" class="scrollview-item" height="170">
-      <rect width="100%" height="200" fill="#200063" />
-      <text id="genre-text" fill="#FFFFFF" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Pop" />
-      <rect id="touch" pointer-events="all" />
-    </use>
-    <use href="#scrollview-item" class="scrollview-item" height="170">
-      <rect width="100%" height="300" fill="#E22905" />
-      <text id="genre-text" fill="#200063" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Rock" />
-      <rect id="touch" pointer-events="all" />
-    </use>
-    <use href="#scrollview-item" class="scrollview-item" height="170">
-      <rect width="100%" height="200" fill="#200063" />
-      <text id="genre-text" fill="#FFFFFF" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Country" />
-      <rect id="touch" pointer-events="all" />
-    </use>
-    <use href="#scrollview-item" class="scrollview-item" height="170">
-      <rect width="100%" height="300" fill="#E22905" />
-      <text id="genre-text" fill="#200063" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Techno" />
-      <rect id="touch" pointer-events="all" />
-    </use>
-    <use href="#scrollview-item" class="scrollview-item" height="170">
-      <rect width="100%" height="300" fill="#E22905" />
-      <text id="genre-text" fill="#200063" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Dance" />
-      <rect id="touch" pointer-events="all" />
+    <use id="my-pool" href="#tile-list-pool">
+      <use id="my-pool[0]" href="#my-item" />
+      <use id="my-pool[1]" href="#my-item" />
+      <use id="my-pool[2]" href="#my-item" />
+      <use id="my-pool[3]" href="#my-item" />
+      <use id="my-pool[4]" href="#my-item" />
+      <use id="my-pool[5]" href="#my-item" />
     </use>
   </use>
 
