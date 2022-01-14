@@ -5,12 +5,15 @@ import { preferences } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
 import { sendCommandRecommandations, getListItem } from "../commands/index.js";
-import { getStateItem, removeStateCallback } from '../state';
+import { getStateItem, removeStateCallback, setStateCallback } from '../state';
+import { init as initState } from '../state';
+
+initState();
 
 let items = [];
 let itemsSong = [];
 let itemsArtiest = [];
-
+let genre = null;
 
 //nummers en artiesten tekenen
 function draw() {
@@ -53,6 +56,8 @@ export function init() {
     };
   });
 
+  getListItem(getStateItem('genreId'));
+
   //heartrate meten en tonen
   let hrm = new HeartRateSensor();
 
@@ -63,18 +68,18 @@ export function init() {
     console.log("Uw BPM is " + `${hrm.heartRate}`);
 
     //opvragen welk genre gekozen is
-    getListItem(getStateItem('genreId'));
     const item = getStateItem('listItem');
     console.log(JSON.stringify(item));
     // wachten tot item geladen is met "if"
     if (item) {
-      let genre = item.value;
+      genre = item.value;
       console.log("het genre is " + genre);
       // command uitsturen op basis van genre en heartrate
       sendCommandRecommandations(genre, hrm.heartRate);
       //resultaten tekenen
-      draw();
+      setStateCallback('songs', draw);
     }
+
 
   };
   hrm.start();
@@ -107,11 +112,12 @@ export function init() {
   }
   clock.ontick = (evt) => updateTime(evt.date);
   updateTime(new Date());
+
+  genre = null;
 }
 
 export function destroy() {
   console.log("destroy songs page");
-  genre = null;
   items.length = 0;
   itemsArtiest.length = 0;
   removeStateCallback('songs', draw);
