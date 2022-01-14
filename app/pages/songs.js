@@ -5,18 +5,16 @@ import { preferences } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
 import { sendCommandRecommandations, getListItem } from "../commands/index.js";
-import { getStateItem, setStateCallback, removeStateCallback } from '../state';
-import { init as initState } from '../state';
+import { getStateItem, removeStateCallback } from '../state';
 
 let items = [];
 let itemsSong = [];
 let itemsArtiest = [];
-let genre = "loading...";
 
-initState();
 
 //nummers en artiesten tekenen
 function draw() {
+
   let i = 0;
   let ii = 0;
   let list = document.getElementById("mySongList");
@@ -68,13 +66,15 @@ export function init() {
     getListItem(getStateItem('genreId'));
     const item = getStateItem('listItem');
     console.log(JSON.stringify(item));
+    // wachten tot item geladen is met "if"
     if (item) {
-      genre = item.value;
+      let genre = item.value;
       console.log("het genre is " + genre);
+      // command uitsturen op basis van genre en heartrate
       sendCommandRecommandations(genre, hrm.heartRate);
+      //resultaten tekenen
       draw();
     }
-    // command uitsturen op basis van genre en heartrate
 
   };
   hrm.start();

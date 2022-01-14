@@ -112,7 +112,7 @@ export function getListData() {
 // Data item genres doorsturen
 export function getListItem(id) {
   const listItem = data.find((item) => {
-    return id === item.id;
+    return id == item.id;
   });
 
     console.log(listItem);

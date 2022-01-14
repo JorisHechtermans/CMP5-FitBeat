@@ -6,7 +6,7 @@ const state = {
   songlist: [],
   artistlist: [],
   listData: [],
-  listItem: [],
+  listItem: null,
   // add other state-items here
 };
 
@@ -79,8 +79,6 @@ function processFiles() {
         if (typeof data[key] !== 'undefined') state[key] = data[key];
       });
 
-      console.log(state.songlist)
-
       updateState();
       callback();
     } else if (fileName === 'artistlist.cbor') {
@@ -89,8 +87,6 @@ function processFiles() {
       Object.keys(state).forEach((key) => {
         if (typeof data[key] !== 'undefined') state[key] = data[key];
       });
-
-      console.log(state.artistlist)
 
       updateState();
       callback();
@@ -101,8 +97,6 @@ function processFiles() {
         if (typeof data[key] !== 'undefined') state[key] = data[key];
       });
 
-      console.log(state.artistlist)
-
       updateState();
       callback();
     } else if (fileName === 'listItem.cbor') {
@@ -111,8 +105,6 @@ function processFiles() {
       Object.keys(state).forEach((key) => {
         if (typeof data[key] !== 'undefined') state[key] = data[key];
       });
-
-      console.log(state.artistlist)
 
       updateState();
       callback();
