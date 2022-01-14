@@ -51,13 +51,6 @@ function draw() {
     ii++;
   });
 
-}
-
-export function init() {
-  console.log("init songs page");
-
-  getListItem(getStateItem('genreId'));
-  setStateCallback('songs', draw);
   //elk item in de songlijst klikbaar maken + linken aan songs_info
   items.forEach((element, index) => {
     let touch = element.getElementById("touch");
@@ -66,7 +59,13 @@ export function init() {
       switchPage("song_info", true);
     };
   });
+}
 
+export function init() {
+  console.log("init songs page");
+
+  getListItem(getStateItem('genreId'));
+  setStateCallback('songs', draw);
 }
 
 export function destroy() {
