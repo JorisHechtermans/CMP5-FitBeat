@@ -1,17 +1,44 @@
 <svg viewport-fill="#200063">
 
+  <use href="#scrollview" id="myScrollview">
+    <rect width="400" height="87" fill="#200063" />
+
+    <use href="#scrollview-item" class="scrollview-item" display="flexible-height">
+      <rect width="100%" height="70" fill="#FFFFFF" />
+      <text id="genre-text" fill="#FFFFFF" text-anchor="middle" text-buffer="NOT SHOWN">
+      <rect id="touch" pointer-events="all" />
+    </use>
+    <use href="#scrollview-item" class="scrollview-item" height="170">
+      <rect width="100%" height="200" fill="#200063" />
+      <text id="genre-text" fill="#FFFFFF" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Pop" />
+      <rect id="touch" pointer-events="all" />
+    </use>
+    <use href="#scrollview-item" class="scrollview-item" height="170">
+      <rect width="100%" height="300" fill="#E22905" />
+      <text id="genre-text" fill="#200063" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Rock" />
+      <rect id="touch" pointer-events="all" />
+    </use>
+    <use href="#scrollview-item" class="scrollview-item" height="170">
+      <rect width="100%" height="200" fill="#200063" />
+      <text id="genre-text" fill="#FFFFFF" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Country" />
+      <rect id="touch" pointer-events="all" />
+    </use>
+    <use href="#scrollview-item" class="scrollview-item" height="170">
+      <rect width="100%" height="300" fill="#E22905" />
+      <text id="genre-text" fill="#200063" x="50%" text-anchor="middle" font-size="36" font-weight="bold" text-buffer="Techno" />
+      <rect id="touch" pointer-events="all" />
+    </use>
+  </use>
+
+  <rect width="400" height="87" fill="#200063" />
+
+  <textarea id="hoofdtitel" fill="#E22905" x="18" y="40" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Genre"/>
+
   <text id="time" fill="#FFFFFF" x="100%-80" y="42" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
   <image fill="#E22905" href="../beelden/hr.png"
           width="40" height="40" x="51" y="15"/>
 
   <text id="hr-icon" fill="#200063" x="70" y="42" font-size="21" font-family="System-Regular" text-anchor="middle" text-length="6"/>
-
-  <textarea fill="#E22905" x="18" y="60" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Genre Selection"/>
-
-  <use href="#button" fill="#E22905" x="10%" y="100%-90" width="80%">
-    <set href="text" attributeName="text-buffer" to="Get Music" />
-    <set href="handle" attributeName="id" to="getmusic-button" />
-  </use>
 
 </svg>

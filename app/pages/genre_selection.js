@@ -18,10 +18,17 @@ export function init() {
 
   const $time = document.getElementById('time');
   let time = '';
+  let list = document.getElementById("myScrollview");
+  let items = list.getElementsByClassName("scrollview-item");
 
-  buttonGetMusic.onclick = () => {
-    switchPage('songs');
-  };
+  //elk genre klikbaar maken en linken aan songs.view
+  items.forEach((element, index) => {
+    let touch = element.getElementById("touch");
+    touch.onclick = function () {
+      console.log(`touched: Genre ${index}`);
+      switchPage("songs", true);
+    };
+  });
 
   //heartrate meten
   let hrm = new HeartRateSensor();
