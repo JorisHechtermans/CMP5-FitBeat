@@ -47,7 +47,7 @@ export function init() {
     draw();
   }
   // use function above on clock tick
-  //clock.ontick = (evt) => updateTime(evt.date);
+  clock.ontick = (evt) => updateTime(evt.date);
   // use the function on start as well
   updateTime(new Date());
 }

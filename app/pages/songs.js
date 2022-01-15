@@ -100,6 +100,7 @@ export function init() {
     // tekenen aanroepen
     drawTime();
   }
+  clock.ontick = (evt) => updateTime(evt.date);
   updateTime(new Date());
 }
 

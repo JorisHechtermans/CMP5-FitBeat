@@ -54,6 +54,7 @@ export function init() {
     drawTime();
   }
   updateTime(new Date());
+  updateTime(new Date());
 
   //button
   buttonGenreSelection = document.getElementById("genre-button");

@@ -6,7 +6,6 @@ import zeroPad from "../utils/zero-pad";
 // import { sendCommandRecommandations } from "../commands/index.js";
 
 let button = null;
-let buttonFailed = null;
 
 export function destroy() {
   console.log("destroy spotify page");
@@ -14,19 +13,13 @@ export function destroy() {
 }
 
 export function init() {
-  //  sendCommandRecommandations(150); //spotify login testen
   console.log("init spotify page");
-  button = document.getElementById("continue");
-  buttonFailed = document.getElementById("failedbutton");
   const $time = document.getElementById("time");
   let time = "";
 
+  button = document.getElementById("continue");
   button.onclick = () => {
     switchPage("measure_heartbeat");
-  };
-
-  buttonFailed.onclick = () => {
-    switchPage("index");
   };
 
   // tijd tekenen
@@ -55,7 +48,7 @@ export function init() {
     draw();
   }
   // use function above on clock tick
-  //clock.ontick = (evt) => updateTime(evt.date);
+  clock.ontick = (evt) => updateTime(evt.date);
   // use the function on start as well
   updateTime(new Date());
 }
