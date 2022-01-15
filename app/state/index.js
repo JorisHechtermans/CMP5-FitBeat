@@ -3,9 +3,9 @@ import * as filesystem from 'fs';
 import * as messaging from 'messaging';
 
 const state = {
-  songlist: [],
-  artistlist: [],
-  listData: [],
+  songlist: null,
+  artistlist: null,
+  listData: null,
   listItem: null,
   // add other state-items here
 };

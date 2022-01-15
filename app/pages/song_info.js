@@ -4,27 +4,24 @@ import clock from "clock";
 import { preferences } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
+import { getStateItem, removeStateCallback, setStateCallback } from '../state';
 
 let buttonBackToIndex = null;
 let hrIcon = "--";
+const $time = document.getElementById("time");
+let time = "";
 
 export function destroy() {
   console.log("destroy songs page");
   buttonBackToIndex = null;
+  removeStateCallback('song_info', draw);
 }
 
-export function init() {
-  console.log("init songs page");
-  buttonBackToIndex = document.getElementById("backtoindex-button");
-  hrIcon = document.getElementById("hr-icon");
+function drawTime() {
+  $time.text = time;
+}
 
-  const $time = document.getElementById("time");
-  let time = "";
-
-  buttonBackToIndex.onclick = () => {
-    switchPage("index");
-  };
-
+function draw() {
   //heartrate meten
   let hrm = new HeartRateSensor();
 
@@ -35,12 +32,21 @@ export function init() {
   hrm.start();
 
   // tijd tekenen
-  function draw() {
-    $time.text = time;
-  }
+
 
   // tijd
   clock.granularity = "minutes";
+
+}
+
+export function init() {
+  console.log("init songs page");
+  buttonBackToIndex = document.getElementById("backtoindex-button");
+  hrIcon = document.getElementById("hr-icon");
+
+  buttonBackToIndex.onclick = () => {
+    switchPage("songs");
+  };
 
   function updateTime(datetime) {
     const minute = datetime.getMinutes();
@@ -56,11 +62,9 @@ export function init() {
     const mins = zeroPad(minute);
     time = `${hours}:${mins}`;
 
-    // tekenen aanroepen
-    draw();
   }
-  // use function above on clock tick
-  // clock.ontick = (evt) => updateTime(evt.date);
-  // use the function on start as well
+  
+  drawTime();
   updateTime(new Date());
+  setStateCallback('song_info', draw);
 }

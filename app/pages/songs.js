@@ -4,9 +4,12 @@ import { HeartRateSensor } from "heart-rate";
 import { sendCommandRecommandations, getListItem } from "../commands";
 import { getStateItem, removeStateCallback, setStateCallback } from '../state';
 
-let items = [];
-let itemsSong = [];
-let itemsArtiest = [];
+let items = null;
+let list = null;
+let songs = null;
+let artists = null;
+let itemsSong = null;
+let itemsArtiest = null;
 let genre = null;
 let hrm = new HeartRateSensor();
 
@@ -20,26 +23,26 @@ function draw() {
 
     //opvragen welk genre gekozen is
     const item = getStateItem('listItem');
-    console.log(JSON.stringify(item));
+    console.log("aangeklikte data: " + JSON.stringify(item));
     // wachten tot item geladen is met "if"
     if (item) {
       genre = item.value;
       console.log("het genre is " + genre);
       // command uitsturen op basis van genre en heartrate
-      //resultaten tekenen
       sendCommandRecommandations(genre, hrm.heartRate);
     }
   };
   hrm.start();
 
-  let i = 0;
-  let ii = 0;
-  let list = document.getElementById("mySongList");
-  const songs = getStateItem('songlist');
-  const artists = getStateItem('artistlist');
+  list = document.getElementById("mySongList");
+  songs = getStateItem('songlist');
+  artists = getStateItem('artistlist');
   items = list.getElementsByClassName("song-list-item");
   itemsSong = list.getElementsByClassName("texttitel");
   itemsArtiest = list.getElementsByClassName("textartiest");
+
+  let i = 0;
+  let ii = 0;
 
   itemsSong.forEach((itemSong) => {
     itemSong.text = songs[i];
@@ -70,8 +73,13 @@ export function init() {
 
 export function destroy() {
   console.log("destroy songs page");
+  items = null;
+  list = null;
+  songs = null;
+  artists = null;
+  itemsSong.text = null;
+  itemsArtiest.text = null;
   genre = null;
-  items.length = 0;
-  itemsArtiest.length = 0;
+
   removeStateCallback('songs', draw);
 }
