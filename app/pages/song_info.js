@@ -8,18 +8,7 @@ import { getStateItem, removeStateCallback, setStateCallback } from '../state';
 
 let buttonBackToIndex = null;
 let hrIcon = "--";
-const $time = document.getElementById("time");
-let time = "";
 
-export function destroy() {
-  console.log("destroy songs page");
-  buttonBackToIndex = null;
-  removeStateCallback('song_info', draw);
-}
-
-function drawTime() {
-  $time.text = time;
-}
 
 function draw() {
   //heartrate meten
@@ -30,13 +19,6 @@ function draw() {
     hrIcon.text = `${hrm.heartRate}`;
   };
   hrm.start();
-
-  // tijd tekenen
-
-
-  // tijd
-  clock.granularity = "minutes";
-
 }
 
 export function init() {
@@ -47,6 +29,16 @@ export function init() {
   buttonBackToIndex.onclick = () => {
     switchPage("songs");
   };
+
+  //tijd
+  const $time = document.getElementById("time");
+  let time = "";
+
+  clock.granularity = "minutes";
+
+  function drawTime() {
+    $time.text = time;
+  }
 
   function updateTime(datetime) {
     const minute = datetime.getMinutes();
@@ -62,9 +54,16 @@ export function init() {
     const mins = zeroPad(minute);
     time = `${hours}:${mins}`;
 
+    // tekenen aanroepen
+    drawTime();
   }
-  
-  drawTime();
   updateTime(new Date());
+
   setStateCallback('song_info', draw);
+}
+
+export function destroy() {
+  console.log("destroy songs page");
+  buttonBackToIndex = null;
+  removeStateCallback('song_info', draw);
 }

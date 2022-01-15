@@ -1,49 +1,40 @@
 import document from "document";
 import { switchPage } from "../navigation";
 import { HeartRateSensor } from "heart-rate";
-import clock from "clock";
-import { preferences } from "user-settings";
 import zeroPad from "../utils/zero-pad";
+import { preferences } from "user-settings";
+import clock from "clock";
+import { setStateItem } from '../state';
 
 let buttonGenreSelection = null;
+let heartRateHandle = null;
+let hrIcon = null;
 
-export function destroy() {
-  console.log("destroy heartbeat page");
-  buttonGenreSelection = null;
-}
 
 export function init() {
   console.log("init heartbeat page");
-  buttonGenreSelection = document.getElementById("genre-button");
 
-  const $time = document.getElementById("time");
-  let time = "";
-
-  buttonGenreSelection.onclick = () => {
-    switchPage("genre_selection");
-  };
-
-  //heartrate meten
+  //heartrate
   let hrm = new HeartRateSensor();
-
   hrm.onreading = function readHeartbeat() {
     console.log("Current heart rate: " + `${hrm.heartRate}`);
-
-    let heartRateHandle = document.getElementById("heartRateLabel");
+    heartRateHandle = document.getElementById("heartRateLabel");
+    hrIcon = document.getElementById("hr-icon");
     heartRateHandle.text = `${hrm.heartRate}`;
-
-    let hrIcon = document.getElementById("hr-icon");
     hrIcon.text = `${hrm.heartRate}`;
+    setStateItem('heartrate', hrm.heartRate);
   };
   hrm.start();
 
-  // tijd tekenen
-  function draw() {
+  //tijd
+  const $time = document.getElementById("time");
+  let time = "";
+
+  clock.granularity = "minutes";
+
+  function drawTime() {
     $time.text = time;
   }
-
-  // tijd
-  clock.granularity = "minutes";
 
   function updateTime(datetime) {
     const minute = datetime.getMinutes();
@@ -60,10 +51,21 @@ export function init() {
     time = `${hours}:${mins}`;
 
     // tekenen aanroepen
-    draw();
+    drawTime();
   }
-  // use function above on clock tick
-  //clock.ontick = (evt) => updateTime(evt.date);
-  // use the function on start as well
   updateTime(new Date());
+
+  //button
+  buttonGenreSelection = document.getElementById("genre-button");
+  buttonGenreSelection.onclick = () => {
+    switchPage("genre_selection");
+  };
+}
+
+
+export function destroy() {
+  console.log("destroy heartbeat page");
+  buttonGenreSelection = null;
+  heartRateHandle = null;
+  hrIcon = null;
 }
