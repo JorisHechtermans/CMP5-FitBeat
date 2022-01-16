@@ -82,7 +82,6 @@ function getRecommandationsSuccess(
           songlist.push(songs);
           albumlist.push(albums);
         });
-        console.log(albumlist);
 
         // use outbox to send data to watch
         outbox

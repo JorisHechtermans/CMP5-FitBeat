@@ -1,6 +1,5 @@
 import document from "document";
 import { switchPage } from "../navigation/index.js";
-import { HeartRateSensor } from "heart-rate";
 import { sendCommandRecommandations, getListItem } from "../commands";
 import { setStateItem, getStateItem, removeStateCallback, setStateCallback } from '../state';
 import zeroPad from "../utils/zero-pad";
@@ -9,36 +8,16 @@ import clock from "clock";
 
 let items = null;
 let list = null;
-let songs = null;
+let songsList = null;
 let artists = null;
 let itemsSong = null;
 let itemsArtiest = null;
 let genre = null;
-let hrm = new HeartRateSensor();
+let heartRate = '';
 
-function draw() {
-  //heartrate meten en tonen
-  hrm.onreading = function () {
-    let hrIcon = document.getElementById("hr-icon");
-    hrIcon.text = `${hrm.heartRate}`;
-
-    console.log("Uw BPM is " + `${hrm.heartRate}`);
-
-    //opvragen welk genre gekozen is
-    const item = getStateItem('listItem');
-    console.log("aangeklikte data: " + JSON.stringify(item));
-    // wachten tot item geladen is met "if"
-    if (item) {
-      genre = item.value;
-      console.log("het genre is " + genre);
-      // command uitsturen op basis van genre en heartrate
-      sendCommandRecommandations(genre, hrm.heartRate);
-    }
-  };
-  hrm.start();
-
+function drawList() {
   list = document.getElementById("mySongList");
-  songs = getStateItem('songlist');
+  songsList = getStateItem('songlist');
   artists = getStateItem('artistlist');
   items = list.getElementsByClassName("song-list-item");
   itemsSong = list.getElementsByClassName("texttitel");
@@ -48,7 +27,7 @@ function draw() {
   let ii = 0;
 
   itemsSong.forEach((itemSong) => {
-    itemSong.text = songs[i];
+    itemSong.text = songsList[i];
     i++;
   });
 
@@ -68,8 +47,28 @@ function draw() {
   });
 }
 
+function draw() {
+  //opvragen welk genre gekozen is
+  const item = getStateItem('listItem');
+  console.log("aangeklikte data: " + JSON.stringify(item));
+  // wachten tot item geladen is met "if"
+  if (item) {
+    genre = item.value;
+    console.log("het genre is " + genre);
+  }
+  // command uitsturen op basis van genre en heartrate
+  sendCommandRecommandations(genre, heartRate);
+  drawList();
+}
+
 export function init() {
   console.log("init songs page");
+
+  //hr tonen
+  heartRate = getStateItem('heartrate');
+  console.log("opgehaalde hr: " + heartRate);
+  let hrIcon = document.getElementById("hr-icon");
+  hrIcon.text = heartRate;
 
   getListItem(getStateItem('genreId'));
   setStateCallback('songs', draw);
@@ -109,11 +108,10 @@ export function destroy() {
   console.log("destroy songs page");
   items = null;
   list = null;
-  songs = null;
+  songsList = null;
   artists = null;
   itemsSong.text = null;
   itemsArtiest.text = null;
   genre = null;
-
   removeStateCallback('songs', draw);
 }

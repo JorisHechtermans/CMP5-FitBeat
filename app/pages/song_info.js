@@ -1,11 +1,10 @@
 import document from "document";
 import clock from "clock";
 import { preferences } from "user-settings";
-import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
-import { getStateItem, removeStateCallback, setStateCallback } from '../state';
+import { getStateItem } from '../state';
 
-let hrIcon = "--";
+
 let albums = '';
 let gekozenAlbum = '';
 let songs = '';
@@ -15,19 +14,13 @@ let gekozenArtist = '';
 let songId = '';
 
 
-function draw() {
-  //heartrate meten
-  let hrm = new HeartRateSensor();
-
-  hrm.onreading = function () {
-    console.log("Current heart rate: " + `${hrm.heartRate}`);
-    hrIcon.text = `${hrm.heartRate}`;
-  };
-  hrm.start();
-}
-
 export function init() {
   console.log("init songs page");
+  //hr tonen
+  let heartRate = getStateItem('heartrate');
+  console.log("opgehaalde hr: " + heartRate);
+  let hrIcon = document.getElementById("hr-icon");
+  hrIcon.text = heartRate;
 
   //Id gekozen nummer ophalen
   songId = getStateItem('songId');
@@ -53,10 +46,6 @@ export function init() {
   console.log("het gekozen album is: " + gekozenAlbum);
   let albumTonen = document.getElementById("album");
   albumTonen.text = gekozenAlbum;
-
-  hrIcon = document.getElementById("hr-icon");
-
-
 
   //tijd
   const $time = document.getElementById("time");
@@ -88,11 +77,8 @@ export function init() {
 
   clock.ontick = (evt) => updateTime(evt.date);
   updateTime(new Date());
-  setStateCallback('song_info', draw);
 }
 
 export function destroy() {
   console.log("destroy songs page");
-  buttonBackToIndex = null;
-  removeStateCallback('song_info', draw);
 }

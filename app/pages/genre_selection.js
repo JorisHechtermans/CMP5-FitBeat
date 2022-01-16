@@ -1,12 +1,7 @@
 import * as document from "document";
 import { switchPage } from "../navigation";
-import { getListData } from "../commands/index.js";
-import {
-  getStateItem,
-  setStateCallback,
-  removeStateCallback,
-  setStateItem,
-} from "../state";
+import { getListData } from '../commands/index.js';
+import { getStateItem, setStateCallback, removeStateCallback, setStateItem } from '../state';
 import zeroPad from "../utils/zero-pad";
 import { preferences } from "user-settings";
 import clock from "clock";
@@ -14,20 +9,20 @@ import clock from "clock";
 let myList = null;
 
 function draw() {
-  const list = getStateItem("listData");
-  console.log(JSON.stringify(list));
+  const list = getStateItem('listData');
   if (list) {
     let loader = document.getElementById("loader");
     loader.style.display = "none";
   }
-
+  console.log(JSON.stringify(list));
   myList = document.getElementById("myList");
+
   myList.delegate = {
     getTileInfo: (index) => {
       return {
         type: "my-pool",
         value: list[index],
-        index: index,
+        index: index
       };
     },
     configureTile: (tile, info) => {
@@ -35,24 +30,30 @@ function draw() {
         tile.getElementById("text").text = `${info.value.name}`;
 
         let touch = tile.getElementById("touch");
-        touch.onclick = function () {
-          setStateItem("genreId", info.value.id);
+        touch.onclick = function() {
+          setStateItem('genreId', info.value.id);
           switchPage("songs");
         };
       }
-    },
+    }
   };
 
   // length must be set AFTER delegate
   myList.length = list.length;
-}
+  }
 
 export function init() {
   console.log("init genre selection page");
   myList = document.getElementById("myList");
 
+  //hr tonen
+  let heartRate = getStateItem('heartrate');
+  console.log("opgehaalde hr: " + heartRate);
+  let hrIcon = document.getElementById("hr-icon");
+  hrIcon.text = heartRate;
+
   getListData();
-  setStateCallback("genre_selection", draw);
+  setStateCallback('genre_selection', draw);
 
   //tijd
   const $time = document.getElementById("time");
@@ -83,10 +84,11 @@ export function init() {
   }
   clock.ontick = (evt) => updateTime(evt.date);
   updateTime(new Date());
+
 }
 
 export function destroy() {
   myList = null;
   console.log("destroy genre selection page");
-  removeStateCallback("genre_selection", draw);
+  removeStateCallback('genre_selection', draw);
 }
