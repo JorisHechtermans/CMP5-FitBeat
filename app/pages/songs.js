@@ -2,7 +2,7 @@ import document from "document";
 import { switchPage } from "../navigation/index.js";
 import { HeartRateSensor } from "heart-rate";
 import { sendCommandRecommandations, getListItem } from "../commands";
-import { getStateItem, removeStateCallback, setStateCallback } from '../state';
+import { setStateItem, getStateItem, removeStateCallback, setStateCallback } from '../state';
 import zeroPad from "../utils/zero-pad";
 import { preferences } from "user-settings";
 import clock from "clock";
@@ -62,6 +62,7 @@ function draw() {
     let touch = element.getElementById("touch");
     touch.onclick = function () {
       console.log(`touched: Song ${index}`);
+      setStateItem('songId', index);
       switchPage("song_info", true);
     };
   });

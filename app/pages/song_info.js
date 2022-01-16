@@ -1,13 +1,18 @@
 import document from "document";
-import { switchPage } from "../navigation/index.js";
 import clock from "clock";
 import { preferences } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import zeroPad from "../utils/zero-pad";
 import { getStateItem, removeStateCallback, setStateCallback } from '../state';
 
-let buttonBackToIndex = null;
 let hrIcon = "--";
+let albums = '';
+let gekozenAlbum = '';
+let songs = '';
+let gekozenSong = '';
+let artists = '';
+let gekozenArtist = '';
+let songId = '';
 
 
 function draw() {
@@ -23,12 +28,35 @@ function draw() {
 
 export function init() {
   console.log("init songs page");
-  buttonBackToIndex = document.getElementById("backtoindex-button");
+
+  //Id gekozen nummer ophalen
+  songId = getStateItem('songId');
+  console.log( "song dat werd aangeklikt: " + songId);
+
+  //Juiste song ophalen
+  songs = getStateItem('songlist');
+  gekozenSong = songs[songId];
+  console.log("het gekozen nummer is: " + gekozenSong);
+  let songTonen = document.getElementById("song");
+  songTonen.text = gekozenSong;
+
+  //Juiste artiest ophalen
+  artists = getStateItem('artistlist');
+  gekozenArtist = artists[songId];
+  console.log("de gekozen artiest is: " + gekozenArtist);
+  let artistTonen = document.getElementById("artist");
+  artistTonen.text = gekozenArtist;
+
+  //Juiste album ophalen
+  albums = getStateItem('albumlist');
+  gekozenAlbum = albums[songId];
+  console.log("het gekozen album is: " + gekozenAlbum);
+  let albumTonen = document.getElementById("album");
+  albumTonen.text = gekozenAlbum;
+
   hrIcon = document.getElementById("hr-icon");
 
-  buttonBackToIndex.onclick = () => {
-    switchPage("songs");
-  };
+
 
   //tijd
   const $time = document.getElementById("time");
@@ -57,7 +85,7 @@ export function init() {
     // tekenen aanroepen
     drawTime();
   }
-  
+
   clock.ontick = (evt) => updateTime(evt.date);
   updateTime(new Date());
   setStateCallback('song_info', draw);

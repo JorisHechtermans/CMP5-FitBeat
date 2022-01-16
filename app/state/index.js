@@ -7,6 +7,7 @@ const state = {
   artistlist: null,
   listData: null,
   listItem: null,
+  albumlist: null,
   // add other state-items here
 };
 
@@ -109,6 +110,15 @@ function processFiles() {
 
       updateState();
       callback();
+    } else if (fileName === 'albumlist.cbor') {
+        const data = filesystem.readFileSync(fileName, 'cbor');
+
+        Object.keys(state).forEach((key) => {
+          if (typeof data[key] !== 'undefined') state[key] = data[key];
+        });
+
+        updateState();
+        callback();
       }
   }
 }
