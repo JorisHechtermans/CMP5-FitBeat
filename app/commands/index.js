@@ -11,7 +11,7 @@ export function sendCommandRecommandations(genre, hr) {
 }
 
 //get list data
-export async function getListData() {
+export function getListData() {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send({
       command: "getListData",
