@@ -1,6 +1,6 @@
 import * as messaging from "messaging";
 
-export function sendCommandRecommandations(genre,hr) {
+export function sendCommandRecommandations(genre, hr) {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send({
       command: "recommandations",
@@ -11,7 +11,7 @@ export function sendCommandRecommandations(genre,hr) {
 }
 
 //get list data
-export function getListData() {
+export async function getListData() {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send({
       command: "getListData",
@@ -31,7 +31,5 @@ export function getListItem(id) {
 
 // set up
 export function init() {
-  messaging.peerSocket.addEventListener("open", () => {
-
-  });
+  messaging.peerSocket.addEventListener("open", () => {});
 }

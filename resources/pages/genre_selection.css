@@ -1,0 +1,13 @@
+#loader {
+  transform: rotate(50deg);
+  animation: pulse 500ms linear infinite;
+}
+
+@keyframes pulse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

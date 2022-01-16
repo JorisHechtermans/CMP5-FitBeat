@@ -29,8 +29,12 @@
 
   <text id="time" fill="#FFFFFF" x="100%-80" y="42" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
-  <image fill="#E22905" href="../beelden/hr.png"
-          width="40" height="40" x="51" y="15"/>
+  <image fill="#E22905" href="../beelden/hr.png" width="40" height="40" x="51" y="15"/>
+
+<svg>
+  <image id="loader" fill="#E22905" href="../beelden/loader.png" width="250" height="250" x="50" y="50" />
+  <animate attributeName="opacity" from=".35" to="1" dur="2" repeatCount="indefinite" easing="ease-in-out" />
+</svg>
 
   <text id="hr-icon" fill="#200063" x="70" y="42" font-size="21" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
