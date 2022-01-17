@@ -6,7 +6,7 @@
           width="180" height="130" x="80" y="80"/>
 
   <use href="#button" fill="#E22905" x="10%" y="100%-90" width="80%">
-    <set href="text" attributeName="text-buffer" to="Get Started" />
+    <set href="text" attributeName="text-buffer" to="_getstarted" />
     <set href="handle" attributeName="id" to="start-button" />
   </use>
 

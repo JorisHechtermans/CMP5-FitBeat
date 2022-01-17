@@ -7,15 +7,15 @@
 
   <text id="hr-icon" fill="#200063" x="70" y="42" font-size="21" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
-  <textarea fill="#E22905" x="18" y="60" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Song Info"/>
+  <textarea fill="#E22905" x="18" y="60" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="_song_info"/>
 
-  <textarea fill="#E22905" x="18" y="120" width="300" height="110" font-size="18" font-family="System-Regular" text-anchor="middle" text-buffer="Title"/>
+  <textarea fill="#E22905" x="18" y="120" width="300" height="110" font-size="18" font-family="System-Regular" text-anchor="middle" text-buffer="_title"/>
   <textarea fill="#FFFFFF" id="song" x="18" y="140" width="300" height="110" font-size="24" font-weight="bold" font-family="System-Regular" text-anchor="middle" text-length="100" text-buffer="Loading..."/>
 
-  <textarea fill="#E22905" x="18" y="180" width="300" height="110" font-size="18" font-family="System-Regular" text-anchor="middle" text-buffer="Artist"/>
+  <textarea fill="#E22905" x="18" y="180" width="300" height="110" font-size="18" font-family="System-Regular" text-anchor="middle" text-buffer="_artist"/>
   <textarea fill="#FFFFFF" id="artist" x="18" y="200" width="300" height="110" font-size="24" font-family="System-Regular" text-anchor="middle" text-length="100" text-buffer="Loading..."/>
 
-  <textarea fill="#E22905" x="18" y="240" width="300" height="110" font-size="18" font-family="System-Regular" text-anchor="middle" text-buffer="Album"/>
+  <textarea fill="#E22905" x="18" y="240" width="300" height="110" font-size="18" font-family="System-Regular" text-anchor="middle" text-buffer="_album"/>
   <textarea fill="#FFFFFF" id="album" x="18" y="260" width="300" height="110" font-size="24" font-family="System-Regular" text-anchor="middle" text-length="100" text-buffer="Loading..."/>
 
 </svg>

@@ -9,7 +9,9 @@ import clock from "clock";
 let myList = null;
 
 function draw() {
+  // data ophalen
   const list = getStateItem('listData');
+  //loader tonen en weghalen
   if (list) {
     let loader = document.getElementById("loader");
     loader.style.display = "none";
@@ -17,6 +19,7 @@ function draw() {
   console.log(JSON.stringify(list));
   myList = document.getElementById("myList");
 
+  //lijst vullen
   myList.delegate = {
     getTileInfo: (index) => {
       return {
@@ -52,7 +55,9 @@ export function init() {
   let hrIcon = document.getElementById("hr-icon");
   hrIcon.text = heartRate;
 
+  //data ophalen
   getListData();
+  //draw
   setStateCallback('genre_selection', draw);
 
   //tijd

@@ -45,7 +45,7 @@
 
     <rect width="400" height="90" fill="#200063" />
 
-  <textarea id="hoofdtitel" fill="#E22905" x="18" y="40" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="Songs"/>
+  <textarea id="hoofdtitel" fill="#E22905" x="18" y="40" width="300" height="110" font-size="36" font-family="System-Regular" text-anchor="middle" text-buffer="_songs"/>
 
   <text id="time" fill="#FFFFFF" x="100%-80" y="42" font-size="25" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 

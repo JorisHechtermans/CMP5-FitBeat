@@ -1,0 +1,29 @@
+msgid "getstarted"
+msgstr "Get Started"
+
+msgid "spotify_check"
+msgstr "Please make sure your Spotify account is connected in the settings menu on your smartphone."
+
+msgid "continue"
+msgstr "Continue"
+
+msgid "heartbeat"
+msgstr "Heartbeat"
+
+msgid "select_genre"
+msgstr "Choose genre"
+
+msgid "songs"
+msgstr "Songs"
+
+msgid "song_info"
+msgstr "Song Info"
+
+msgid "title"
+msgstr "Title"
+
+msgid "artist"
+msgstr "Artist"
+
+msgid "album"
+msgstr "Album"

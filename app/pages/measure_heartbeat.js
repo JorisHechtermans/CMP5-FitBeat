@@ -14,7 +14,7 @@ let hrIcon = null;
 export function init() {
   console.log("init heartbeat page");
 
-  //heartrate
+  //heartrate meten
   let hrm = new HeartRateSensor();
   hrm.onreading = function readHeartbeat() {
     console.log("Current heart rate: " + `${hrm.heartRate}`);

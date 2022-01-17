@@ -7,12 +7,12 @@
 
   <text id="hr-icon" fill="#200063" x="70" y="42" font-size="21" font-family="System-Regular" text-anchor="middle" text-length="6"/>
 
-  <textarea fill="#E22905" x="18" y="55" width="300" height="110" font-size="28" font-family="System-Bold" text-anchor="middle" text-buffer="Heartbeat"/>
+  <textarea fill="#E22905" x="18" y="55" width="300" height="110" font-size="28" font-family="System-Bold" text-anchor="middle" text-buffer="_heartbeat"/>
 
   <text id="heartRateLabel" text-anchor="middle" fill="#E22905" x="50%" y="210" width="300" height="110" font-size="130" font-family="System-Bold"/>
 
   <use href="#button" fill="#E22905" x="10%" y="100%-90" width="80%">
-    <set href="text" attributeName="text-buffer" to="Select Genre" />
+    <set href="text" attributeName="text-buffer" to="_select_genre" />
     <set href="handle" attributeName="id" to="genre-button" />
   </use>
 

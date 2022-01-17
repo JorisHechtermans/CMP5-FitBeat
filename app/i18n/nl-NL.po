@@ -1,0 +1,29 @@
+msgid "getstarted"
+msgstr "Beginnen"
+
+msgid "spotify_check"
+msgstr "Controleer of je Spotify account verbonden is in de instellingen van je smartphone."
+
+msgid "continue"
+msgstr "Verdergaan"
+
+msgid "heartbeat"
+msgstr "Hartslag"
+
+msgid "select_genre"
+msgstr "Kies genre"
+
+msgid "songs"
+msgstr "Nummers"
+
+msgid "song_info"
+msgstr "Nummer Info"
+
+msgid "title"
+msgstr "Titel"
+
+msgid "artist"
+msgstr "Artiest"
+
+msgid "album"
+msgstr "Album"
