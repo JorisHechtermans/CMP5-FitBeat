@@ -56,6 +56,7 @@ function draw() {
     genre = item.value;
     console.log("het genre is " + genre);
   }
+  // !!! We hebben ervoor gekozen om het command in de draw-functie te houden. Wanneer deze in de init() staat, werkt de genre-functionaliteit niet meer en bijgevolg is de songs pagina dan ook niet correct. We hebben hier dagen over nagedacht, maar geen oplossing kunnen bedenken. Nu het command in draw() staat, hebben we wel een loop als fout, maar alle functionaliteit is er wel.
   // command uitsturen op basis van genre en heartrate
   sendCommandRecommandations(genre, heartRate);
   drawList();
@@ -70,7 +71,10 @@ export function init() {
   let hrIcon = document.getElementById("hr-icon");
   hrIcon.text = heartRate;
 
+  //genre id ophalen
   getListItem(getStateItem('genreId'));
+
+  // draw
   setStateCallback('songs', draw);
 
   //tijd
